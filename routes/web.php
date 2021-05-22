@@ -1,5 +1,7 @@
 <?php
 
+use App\Sso\Command\RegisterUserCommand;
+use App\Sso\Query\UserQuery;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $result = (new RegisterUserCommand('test@example.com', '1234'))->execute();
+    print_r($result);
+
+    $response = (new UserQuery('1234'))->ask();
+    print_r($response);
 });

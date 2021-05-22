@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7759431e303e2d722a264a8a991a9e84",
+    "content-hash": "26b7a6147d4b34def973f62b33051d9e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4824,6 +4824,60 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "xtompie/lainstance",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xtompie/lainstance.git",
+                "reference": "74540f9bf54b6413fa72c919df9d2622343cf659"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xtompie/lainstance/zipball/74540f9bf54b6413fa72c919df9d2622343cf659",
+                "reference": "74540f9bf54b6413fa72c919df9d2622343cf659",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Xtompie\\Lainstance\\LainstanceServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Xtompie\\Lainstance\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomasz Pielczyk",
+                    "email": "tomasz.pielczyk@gmail.com"
+                }
+            ],
+            "description": "Laravel container extension for resolving and defining singletons alongside classes",
+            "keywords": [
+                "contianer",
+                "injection",
+                "instance",
+                "laravel",
+                "singleton"
+            ],
+            "support": {
+                "issues": "https://github.com/xtompie/lainstance/issues",
+                "source": "https://github.com/xtompie/lainstance/tree/1.0.2"
+            },
+            "time": "2021-05-18T09:50:29+00:00"
         }
     ],
     "packages-dev": [

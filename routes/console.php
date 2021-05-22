@@ -1,19 +1,14 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
+use App\Sso\Command\RegisterUserCommand;
 use Illuminate\Support\Facades\Artisan;
 
-/*
-|--------------------------------------------------------------------------
-| Console Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of your Closure based console
-| commands. Each Closure is bound to a command instance allowing a
-| simple approach to interacting with each command's IO methods.
-|
-*/
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Artisan::command('i', function () {
+    
+
+    $result = (new RegisterUserCommand('test@example.com', '1234'))->execute();
+
+    dump($result);
+    
+});
