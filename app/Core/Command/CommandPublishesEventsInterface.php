@@ -2,7 +2,7 @@
 
 namespace App\Core\Command;
 
-interface CommandPublishesEvents
+interface CommandPublishesEventsInterface
 {
     public function events(): array;
 }

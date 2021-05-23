@@ -2,6 +2,7 @@
 
 namespace App\Core\Providers;
 
+use DebugBar\DataCollector\MessagesCollector;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

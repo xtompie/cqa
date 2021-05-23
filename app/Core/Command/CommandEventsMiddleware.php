@@ -14,8 +14,8 @@ class CommandEventsMiddleware implements CommandMiddlewareInterface, Shared
     {
         $result = $next($command);
 
-        if ($result instanceof CommandPublishesEvents) {
-            /** @var CommandPublishesEvents $result */
+        if ($result instanceof CommandPublishesEventsInterface) {
+            /** @var CommandPublishesEventsInterface $result */
             foreach ($result->events() as $event) {
                 EventBus::instance()->publish($event);
             }

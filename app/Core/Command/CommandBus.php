@@ -25,7 +25,7 @@ class CommandBus
     {
         return [
             CommandEventsMiddleware::instance(),
-            CommandClearQueryCacheMiddleware::instance(),
+            CommandDebugMiddleware::instance(),
             CommandHandlerMiddleware::instance(),
         ];
     }

@@ -21,4 +21,8 @@ Route::get('/', function () {
 
     $response = (new UserQuery('1234'))->ask();
     print_r($response);
+
+    
+    
+    return '';
 });

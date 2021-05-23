@@ -2,37 +2,40 @@
 
 namespace App\Core\Event;
 
-class EventBus
+use Closure;
+use Xtompie\Lainstance\Instance;
+use Xtompie\Lainstance\Shared;
+
+class EventBus implements Shared
 {
-    protected $listeners;
+    use Instance;
 
-    public static function instance(): EventBus
-    {
-        return new EventBus;
-    }
+    protected Closure $chain;
 
-    public function __construct()
+    public function __construct() 
     {
-        $this->listeners = EventListeners::listeners();
+        $this->chain = $this->chain($this->middlewares());
     }
 
     public function publish(object $event)
     {
-        $name = get_class($event);
-        if (!array_key_exists($name, $this->listeners)) {
-            return;
-        }
-        foreach ((array)$this->listeners[$name] as $index => $listener) {
-            if (is_string($listener)) { 
-                $listener = new $listener;
-                $this->listeners[$name][$index]  = $listener;
-            }
-            call_user_func($listener, $event);
-        }
+        return ($this->chain)($event);
+    }    
+
+    protected function middlewares(): array
+    {
+        return [
+            EventDebugMiddleware::instance(),
+            EventPublisherMiddleware::instance(),
+        ];
     }
 
-    public function on($eventName, $callback)
+    protected function chain($middlewares): Closure
     {
-        $this->listeners[$eventName][] = $callback;
-    }
+        $chain = static fn () => null;
+        while ($middleware = array_pop($middlewares)) {
+            $chain = static fn ($event) => $middleware->publish($event, $chain);
+        }
+        return $chain;
+    }    
 }

@@ -23,6 +23,7 @@ class QueryBus
     {
         return [
             QueryMemoMiddleware::instance(),
+            QueryDebugMiddleware::instance(),
             QueryHandlerMiddleware::instance(),
         ];
     }
