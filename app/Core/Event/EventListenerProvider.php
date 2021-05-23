@@ -18,7 +18,7 @@ class EventListenerProvider
     protected function listeners(): array
     {
         return array_merge(...[
-            \App\Sso\Listener\EventListeners::listeners(),
+            \App\Sso\Listener\Listeners::listeners(),
         ]);
     }
 

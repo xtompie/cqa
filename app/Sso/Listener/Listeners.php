@@ -4,7 +4,7 @@ namespace App\Sso\Listener;
 
 use App\Sso\Event\UserRegistredEvent;
 
-class EventListeners
+class Listeners
 {
     public static function listeners(): array
     {
