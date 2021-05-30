@@ -28,6 +28,7 @@ class CommandBus implements Shared
             CommandValidateMiddleware::instance(),
             CommandEventsMiddleware::instance(),
             CommandDebugMiddleware::instance(),
+            CommandDbTransactionMiddleware::instance(),
             CommandHandlerMiddleware::instance(),
         ];
     }

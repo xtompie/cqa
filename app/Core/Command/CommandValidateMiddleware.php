@@ -12,7 +12,7 @@ class CommandValidateMiddleware implements CommandMiddlewareInterface, Shared
     public function __construct(
         protected CommandHandlerProvider $handlers,
         protected CommandValidatorProvider $validators,
-    ){ }
+    ) {}
 
     public function execute(object $command, $next): ?object 
     {

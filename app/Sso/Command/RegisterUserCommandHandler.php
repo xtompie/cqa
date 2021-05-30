@@ -2,11 +2,12 @@
 
 namespace App\Sso\Command;
 
+use App\Core\Command\CommandDbTransactionInterface;
 use App\Core\Command\CommandResult;
 use App\Sso\Event\UserRegistredEvent;
 use Xtompie\Lainstance\Instance;
 
-class RegisterUserCommandHandler
+class RegisterUserCommandHandler implements CommandDbTransactionInterface
 {
     use Instance;
 
