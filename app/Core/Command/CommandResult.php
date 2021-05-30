@@ -7,12 +7,32 @@ use Error;
 
 class CommandResult implements CommandPublishesEventsInterface
 {
-    public static function new()
+    public static function new(): static
     {
         return new static(false, null, ErrorCollection::ofEmpty(), []);
     }
 
-    public function __construct(
+    public static function ofSuccess($events = []): static
+    {
+        return self::new()->withSuccess()->withEvents($events);
+    }
+
+    public static function ofErrors(ErrorCollection $errors): static
+    {
+        return self::new()->withErrors($errors);
+    }
+
+    public static function ofError(Error $error): static
+    {
+        return self::new()->withError($error);
+    }
+
+    public static function ofErrorMsg(string $msg, string $key = null): static
+    {
+        return self::new()->withErrorMsg($msg, $key);
+    }
+
+    final public function __construct(
         protected bool $success,
         protected string|null $resource,
         protected ErrorCollection $errors,
@@ -38,7 +58,7 @@ class CommandResult implements CommandPublishesEventsInterface
         return $this->withErrors(new ErrorCollection([$error]));
     }
 
-    public function withErrorMessage($message, $key = null)
+    public function withErrorMsg($message, $key = null)
     {
         return $this->withError(new Error($message, $key));
     }

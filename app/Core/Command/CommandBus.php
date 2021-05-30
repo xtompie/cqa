@@ -2,10 +2,11 @@
 
 namespace App\Core\Command;
 
-use Xtompie\Lainstance\Instance;
 use Closure;
+use Xtompie\Lainstance\Instance;
+use Xtompie\Lainstance\Shared;
 
-class CommandBus
+class CommandBus implements Shared
 {
     use Instance;
 
@@ -24,6 +25,7 @@ class CommandBus
     protected function middlewares(): array
     {
         return [
+            CommandValidateMiddleware::instance(),
             CommandEventsMiddleware::instance(),
             CommandDebugMiddleware::instance(),
             CommandHandlerMiddleware::instance(),
