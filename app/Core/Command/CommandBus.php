@@ -29,6 +29,7 @@ class CommandBus implements Shared
             EventsPublisherMiddleware::instance(),
             DebugMiddleware::instance(),
             DbTransactionMiddleware::instance(),
+            ErrorExceptionToResultMiddleware::instance(),
             HandlerMiddleware::instance(),
         ];
     }
