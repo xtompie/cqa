@@ -2,7 +2,7 @@
 
 namespace App\Core\Query;
 
-interface QueryMemoIdentifyInterface
+interface MemoIdentifyInterface
 {
     public function memoIdentify(object $query): string;
 }

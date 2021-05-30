@@ -5,7 +5,7 @@ namespace App\Core\Event;
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class EventDebugMiddleware implements EventMiddlewareInterface, Shared
+class DebugMiddleware implements MiddlewareInterface, Shared
 {
     use Instance;
 
@@ -18,7 +18,7 @@ class EventDebugMiddleware implements EventMiddlewareInterface, Shared
             debugbar()->addMessage(
                 [
                     'event' => $event::class,
-                    'listeners' => EventListenerProvider::instance()->provide($event),
+                    'listeners' => ListenerProvider::instance()->provide($event),
                 ],
                 'listeners'
             );

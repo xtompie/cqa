@@ -5,13 +5,13 @@ namespace App\Core\Command;
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class CommandHandlerMiddleware implements CommandMiddlewareInterface, Shared
+class HandlerMiddleware implements MiddlewareInterface, Shared
 {
     use Instance;
 
     public function execute(object $command, callable $next): ?object 
     {
-        $handler = CommandHandlerProvider::instance()->provide($command);
+        $handler = HandlerProvider::instance()->provide($command);
         return $handler->execute($command);
     }
 }

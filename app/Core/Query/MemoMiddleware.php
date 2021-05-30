@@ -5,18 +5,18 @@ namespace App\Core\Query;
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class QueryMemoMiddleware implements QueryMiddlewareInterface, Shared
+class MemoMiddleware implements MiddlewareInterface, Shared
 {
     use Instance;
 
     public function __construct( 
-        protected QueryMemoStorage $storage,
-        protected QueryHandlerProvider $handlers,
+        protected MemoStorage $storage,
+        protected HandlerProvider $handlers,
     ) {}
 
     public function ask(object $query, callable $next): ?object 
     {
-        $memorable = $this->handlers->provide($query) instanceof QueryMemoInterface;
+        $memorable = $this->handlers->provide($query) instanceof MemoInterface;
 
         if ($memorable) {
             $identity = $this->identify($query);
@@ -36,7 +36,7 @@ class QueryMemoMiddleware implements QueryMiddlewareInterface, Shared
 
     protected function identify(object $query): string
     {
-        return $query instanceof QueryMemoIdentifyInterface 
+        return $query instanceof MemoIdentifyInterface 
             ? $query->memoIdentify($query) 
             : sha1(serialize($query))
         ;

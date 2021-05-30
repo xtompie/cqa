@@ -5,12 +5,12 @@ namespace App\Core\Event;
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class EventPublisherMiddleware implements EventMiddlewareInterface, Shared
+class PublisherMiddleware implements MiddlewareInterface, Shared
 {
     use Instance;
 
     public function __construct(
-        protected EventListenerProvider $listeners,
+        protected ListenerProvider $listeners,
     ) {}
 
     public function publish(object $event, callable $next)

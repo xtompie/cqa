@@ -2,7 +2,7 @@
 
 namespace App\Core\Command;
 
-interface CommandMiddlewareInterface
+interface MiddlewareInterface
 {
     public function execute(object $command, callable $next): ?object;
 }

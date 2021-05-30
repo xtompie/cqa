@@ -25,8 +25,8 @@ class EventBus implements Shared
     protected function middlewares(): array
     {
         return [
-            EventDebugMiddleware::instance(),
-            EventPublisherMiddleware::instance(),
+            DebugMiddleware::instance(),
+            PublisherMiddleware::instance(),
         ];
     }
 

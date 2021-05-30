@@ -3,7 +3,7 @@
 namespace App\Sso\Command;
 
 use App\Core\Command\CommandBus;
-use App\Core\Command\CommandResult;
+use App\Core\Command\Result;
 
 class RegisterUserCommand
 {
@@ -22,7 +22,7 @@ class RegisterUserCommand
         return $this->pass;
     }
 
-    public function execute(): CommandResult
+    public function execute(): Result
     {
         return CommandBus::instance()->execute($this);
     }

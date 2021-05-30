@@ -2,7 +2,7 @@
 
 namespace App\Core\Command;
 
-interface CommandDbTransactionInterface
+interface DbTransactionInterface
 {
    
 }

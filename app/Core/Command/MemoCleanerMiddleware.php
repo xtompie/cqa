@@ -2,11 +2,11 @@
 
 namespace App\Core\Command;
 
-use App\Core\Query\QueryMemoStorage;
+use App\Core\Query\MemoStorage;
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class CommandClearQueryCacheMiddleware implements CommandMiddlewareInterface, Shared
+class MemoCleanerMiddleware implements MiddlewareInterface, Shared
 {
     use Instance;
 
@@ -14,7 +14,7 @@ class CommandClearQueryCacheMiddleware implements CommandMiddlewareInterface, Sh
     {
         $result = $next($command);
 
-        QueryMemoStorage::instance()->clear();
+        MemoStorage::instance()->clear();
 
         return $result;
     }

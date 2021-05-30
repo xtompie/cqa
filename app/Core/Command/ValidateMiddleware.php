@@ -5,18 +5,18 @@ namespace App\Core\Command;
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class CommandValidateMiddleware implements CommandMiddlewareInterface, Shared
+class ValidateMiddleware implements MiddlewareInterface, Shared
 {
     use Instance;
 
     public function __construct(
-        protected CommandHandlerProvider $handlers,
-        protected CommandValidatorProvider $validators,
+        protected HandlerProvider $handlers,
+        protected ValidatorProvider $validators,
     ) {}
 
     public function execute(object $command, $next): ?object 
     {
-        if ($this->handlers->provide($command) instanceof CommandValidateInterface) {
+        if ($this->handlers->provide($command) instanceof ValidateInterface) {
             $result = $this->validators->provide($command)->validate($command);
             if ($result) {
                 return $result;

@@ -2,9 +2,9 @@
 
 namespace App\Sso\Event;
 
-use App\Core\Event\EventPublicInterface;
+use App\Core\Event\PublicInterface;
 
-class UserRegistredEvent implements EventPublicInterface
+class UserRegistredEvent implements PublicInterface
 {
     public function __construct(
         protected string $id

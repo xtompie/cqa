@@ -2,6 +2,6 @@
 
 namespace App\Core\Event;
 
-interface EventPublicInterface
+interface PublicInterface
 {
 }

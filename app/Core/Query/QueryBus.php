@@ -22,9 +22,9 @@ class QueryBus
     protected function middlewares(): array
     {
         return [
-            QueryMemoMiddleware::instance(),
-            QueryDebugMiddleware::instance(),
-            QueryHandlerMiddleware::instance(),
+            MemoMiddleware::instance(),
+            DebugMiddleware::instance(),
+            HandlerMiddleware::instance(),
         ];
     }
 

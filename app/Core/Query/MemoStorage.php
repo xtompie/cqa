@@ -5,7 +5,7 @@ namespace App\Core\Query;
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class QueryMemoStorage implements Shared
+class MemoStorage implements Shared
 {
     use Instance;
 

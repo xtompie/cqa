@@ -5,7 +5,7 @@ namespace App\Core\Command;
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class CommandValidatorProvider implements Shared
+class ValidatorProvider implements Shared
 {
     use Instance;
 

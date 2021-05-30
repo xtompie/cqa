@@ -2,7 +2,7 @@
 
 namespace App\Core\Event;
 
-interface EventMiddlewareInterface
+interface MiddlewareInterface
 {
     public function publish(object $event, callable $next);
 }

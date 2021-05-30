@@ -4,7 +4,7 @@ namespace App\Core\Event;
 
 use Xtompie\Lainstance\Instance;
 
-class EventListenerProvider
+class ListenerProvider
 {
     use Instance;
 

@@ -25,11 +25,11 @@ class CommandBus implements Shared
     protected function middlewares(): array
     {
         return [
-            CommandValidateMiddleware::instance(),
-            CommandEventsMiddleware::instance(),
-            CommandDebugMiddleware::instance(),
-            CommandDbTransactionMiddleware::instance(),
-            CommandHandlerMiddleware::instance(),
+            ValidateMiddleware::instance(),
+            EventsPublisherMiddleware::instance(),
+            DebugMiddleware::instance(),
+            DbTransactionMiddleware::instance(),
+            HandlerMiddleware::instance(),
         ];
     }
 

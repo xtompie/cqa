@@ -5,7 +5,7 @@ namespace App\Core\Query;
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class QueryHandlerProvider implements Shared
+class HandlerProvider implements Shared
 {
     use Instance;
 

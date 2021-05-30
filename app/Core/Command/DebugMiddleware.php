@@ -1,29 +1,29 @@
 <?php
 
-namespace App\Core\Query;
+namespace App\Core\Command;
 
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class QueryDebugMiddleware implements QueryMiddlewareInterface, Shared
+class DebugMiddleware implements MiddlewareInterface, Shared
 {
     use Instance;
 
-    public function ask(object $query, $next): ?object 
+    public function execute(object $command, $next): ?object 
     {
         $debug = config('app.debug');
 
         if ($debug) {
-            debugbar()->addMessage($query, 'query');
+            debugbar()->addMessage($command, 'command');
             $start = now();
         }
 
-        $result = $next($query);
+        $result = $next($command);
 
         if ($debug) {
             debugbar()->addMessage(
                 [
-                    'query' => $query,
+                    'command' => $command,
                     'time' => now()->diffInRealMilliseconds($start) .'ms',
                 ],
                 'time'

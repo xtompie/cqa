@@ -6,7 +6,7 @@ use App\Core\Event\EventBus;
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class CommandEventsMiddleware implements CommandMiddlewareInterface, Shared
+class EventsPublisherMiddleware implements MiddlewareInterface, Shared
 {
     use Instance;
 
@@ -14,8 +14,8 @@ class CommandEventsMiddleware implements CommandMiddlewareInterface, Shared
     {
         $result = $next($command);
 
-        if ($result instanceof CommandPublishesEventsInterface) {
-            /** @var CommandPublishesEventsInterface $result */
+        if ($result instanceof PublishesEventsInterface) {
+            /** @var PublishesEventsInterface $result */
             foreach ($result->events() as $event) {
                 EventBus::instance()->publish($event);
             }

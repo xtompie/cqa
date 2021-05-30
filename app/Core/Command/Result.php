@@ -5,7 +5,7 @@ namespace App\Core\Command;
 use App\Core\Error\ErrorCollection;
 use Error;
 
-class CommandResult implements CommandPublishesEventsInterface
+class Result implements PublishesEventsInterface
 {
     public static function new(): static
     {

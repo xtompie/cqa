@@ -5,7 +5,7 @@ namespace App\Core\Command;
 use Xtompie\Lainstance\Instance;
 use Xtompie\Lainstance\Shared;
 
-class CommandHandlerProvider implements Shared
+class HandlerProvider implements Shared
 {
     use Instance;
 
